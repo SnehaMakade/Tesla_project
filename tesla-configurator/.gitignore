@@ -20,3 +20,4 @@ Thumbs.db
 
 *.angular/cache/
 *.vscode/
+.vercel
