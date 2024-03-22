@@ -1,0 +1,30 @@
+<h2>Step 3: Summary</h2>
+<h3>Your Tesla {{selectedColorCodeDesc}}<h3>
+    <table width="50%">
+      <tr>
+        <td *ngIf="selectedConfigDesc">{{ selectedConfigDesc }}</td>
+        <td *ngIf="selectedConfigPrice">{{ selectedConfigPrice }}</td>
+      </tr>
+      <tr *ngIf="selectedConfigRangeSpeed">
+        <td colspan="2">{{ selectedConfigRangeSpeed }}</td>
+      </tr>
+      <tr>
+        <td *ngIf="selectedColorDesc">{{ selectedColorDesc }} Color</td>
+        <td *ngIf="selectedColorPrice">{{ selectedColorPrice }}</td>
+      </tr>
+      <tr *ngIf="selectedConfigTowHitch == 'Yes'">
+        <td>Tow Hitch Package - $1000</td>
+        <td>{{1000 | currency:'USD'}}</td>
+      </tr>
+      <tr *ngIf="selectedConfigYoke == 'Yes'">
+        <td>Yoke Package</td>
+        <td>{{ 1000 | currency:'USD' }}</td>
+      </tr>
+      <tr>
+        <td>TOTAL COST</td>
+        <td>{{formattedCost}}</td>
+      </tr>
+    </table>
+    <div *ngIf="imageUrl">
+      <img [src]="imageUrl">
+    </div>

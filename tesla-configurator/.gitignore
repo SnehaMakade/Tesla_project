@@ -1,0 +1,23 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+
+# Node
+/node_modules
+
+# IDEs and editors
+*.launch
+.settings/
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+*.angular/cache/
+*.vscode/

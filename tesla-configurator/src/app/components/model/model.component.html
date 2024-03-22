@@ -1,0 +1,25 @@
+<h2>Step 1: Choose your Model and color</h2>
+
+<form [formGroup]="carForm" class="form-inline" style="border:none;">
+    <div class="form-group">
+        <label for="modelSelect">Model:</label>
+        <select id="modelSelect" name="modelSelect" formControlName="modelSelect" class="form-control"
+            (change)="onSelect($event)">
+            <option value="" disabled selected>Choose....</option>
+            <option *ngFor="let model of models" [value]="model.code">{{model.description}}</option>
+        </select>
+    </div>
+
+    <!-- Show the color dropdown only if a model is selected -->
+    <div class="form-group" *ngIf="carForm.get('modelSelect')?.value && (colors && colors.length > 0)">
+        <label for="colorSelect">Color:</label>
+        <select id="colorSelect" name="colorSelect" formControlName="colorSelect" class="form-control"
+            (change)="onSelectColor($event)">
+            <option *ngFor="let col of colors" [value]="col.code">{{col.description}}</option>
+        </select>
+    </div>
+</form>
+
+<div *ngIf="imageUrl">
+    <img [src]="imageUrl">
+</div>

@@ -1,0 +1,22 @@
+<h2>Step 2: Select your Config and options</h2>
+<form [formGroup]="configForm">
+    <label for="configSelect">Config:</label>
+    <select id="configSelect" name="configSelect" formControlName="configSelect" class="form-control"
+        (change)="onSelect($event)">
+        <option value="" disabled selected>Choose....</option>
+        <option *ngFor="let config of configArray" [value]="config.id">{{config.description}}</option>
+    </select>
+    <div>{{detailsView}}</div>
+    <div *ngIf="options && options.towHitch">
+        <label for="includeTow">Tow hitch?</label>
+        <input id="includeTow" type="checkbox" formControlName="includeTow" (change)="onTowhitchChange($event)">
+    </div>
+    <div *ngIf="options && options.yoke">
+        <label for="includeYoke">Yoke steering wheel?</label>
+        <input id="includeYoke" type="checkbox" formControlName="includeYoke" (change)="onYokeChange($event)">
+    </div>
+</form>
+
+<div *ngIf="imageUrl" width="100%">
+    <img [src]="imageUrl">
+</div>
